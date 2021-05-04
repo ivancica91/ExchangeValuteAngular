@@ -1,0 +1,8 @@
+<h4>Zahtjevi:</h4>
+<button routerLink="/zahtjev/novi">Novi Zahtjev</button>
+<br>
+<div class="row">
+  <div *ngFor="let zahtjev of zahtjevi" class="col-2">
+<app-zahtjev-card [zahtjev]="zahtjev"></app-zahtjev-card>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<!-- TODO
+napraviti jos jedan class member, user je trenutno ulogirani user, a member ce biti za prikaz svih korisnika, to će admin koristiti
+-->
+
+
+
+<div class="row" *ngIf="user">
+  <div class="col-4 text-center">
+      <h1> Profil</h1>
+  </div>
+  <div class="col-8">
+      <div class="alert alert-info" *ngIf="editForm.dirty">
+         <strong>Info: </strong> Napravili ste izmjene na profilu. Sve nespremljene izmjene biti će izgubljene.
+      </div>
+  </div>
+  <div class="col-4">
+      <div class="card">
+          <img src="{{'assets/'+ user.slika}}" alt="{{user.userName}}" class="card-img-top img-thumbnail">
+          <div class="card-body">
+              <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+                  <div>
+                      <strong>Korisničko ime:</strong><br>
+                      <p>{{user.userName}}</p>
+                  </div>
+                  <div>
+                      <strong>Ime</strong><br>
+                      <textarea class="form-control" [(ngModel)]="user.ime" name="ime" rows="1"></textarea>
+                  </div>
+                  <div>
+                      <strong>Prezime</strong><br>
+                      <textarea class="form-control" [(ngModel)]="user.prezime" name="prezime" rows="1"></textarea>
+                  </div>
+              </form>
+
+          </div>
+          <div class="card-footer">
+              <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-success btn-block">Spremi izmjene</button>
+          </div>
+      </div>
+  </div>
+</div>

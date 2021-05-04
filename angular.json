@@ -27,10 +27,12 @@
               "src/favicon.ico",
               "src/assets"
             ],
+            "scripts": [],
             "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootswatch/dist/lux/bootstrap.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -91,6 +93,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -124,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "ExchangeValutaAngular"
+  "defaultProject": "ExchangeValutaAngular",
+  "cli": {
+    "analytics": false
+  }
 }

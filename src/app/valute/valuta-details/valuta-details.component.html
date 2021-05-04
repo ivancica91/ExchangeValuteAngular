@@ -1,0 +1,29 @@
+<div  class="container">
+  <h1>Detalji valute:</h1>
+
+  <a href="#" routerLink="/valute" class="btn btn-primary">Vrati se</a>
+
+  <div *ngIf="valuta" class="row" >
+        <div>
+          <strong>Naziv:</strong>
+          <p>{{ valuta.naziv }}</p>
+      </div>
+
+      <div>
+          <strong>Slika:</strong>
+          <p><img src="{{'assets/'+ valuta.slikaValute}}" alt={{valuta.valutaId}}></p>
+      </div>
+
+      <div>
+          <strong>Tecaj:</strong>
+          <p>{{ valuta.tecaj }}</p>
+
+      </div>
+
+        <!-- TODO:
+        ubaciti himnu drzave u kojoj se valuta koristi -->
+  </div>
+
+
+  </div>
+

@@ -1,0 +1,23 @@
+<button routerLink="/sredstva/nova">Dodaj sredstva</button>
+<div class="row">
+  <div *ngIf="sredstva" class="col-2">
+<app-sredstva-card [sredstva]="sredstva"></app-sredstva-card>
+  </div>
+</div>
+
+
+
+
+<!-- <div *ngFor="let protuvrijednost of protuvrijednosti" class="container">
+  <button onclick="getProtuvrijednosti()">Protuvrijednosti u HRK</button>
+    <div [hidden]="isShowDiv" >
+      {{protuvrijednost.valuta}}
+      {{protuvrijednost.iznos}}
+      {{protuvrijednost.protuvrijednostHRK}}
+    </div>
+  </div> -->
+
+
+
+
+

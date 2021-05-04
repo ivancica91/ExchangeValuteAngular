@@ -1,0 +1,66 @@
+<div class="row">
+	<div class="col-md-6 offset-md-3 mt-4">
+		<h3>Registracija novog korisnika</h3>
+		<form #f="ngForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<label for="registerUsername">Korisničko ime</label>
+				<input type="text" name="userName" [(ngModel)]="model.userName" required #userName="ngModel" class="form-control"
+					   id="registerUsername" placeholder="Unesite korisničko ime">
+			</div>
+      <div class="form-group">
+				<label for="ime">Ime</label>
+				<input type="text" name="ime" [(ngModel)]="model.ime" required #ime="ngModel" class="form-control"
+					   id="ime" placeholder="Unesite ime">
+			</div>
+      <div class="form-group">
+				<label for="prezime">Prezime</label>
+				<input type="text" name="prezime" [(ngModel)]="model.prezime" required #prezime="ngModel" class="form-control"
+					   id="prezime" placeholder="Unesite prezime">
+			</div>
+			<div class="form-group">
+				<label for="registerEmail">Email</label>
+				<input type="email" name="email" [(ngModel)]="model.email" required #email="ngModel" class="form-control" id="registerEmail"
+					   placeholder="Unesite email adresu">
+			</div>
+      <div class="form-group">
+				<label for="registerUsername">Slika</label>
+				<input type="text" name="userName" [(ngModel)]="model.slika" required #slika="ngModel" class="form-control"
+					   id="slika" placeholder="Unesite lokaciju slike, npr. korisnici/iivan.jpg ">
+			</div>
+			<div class="form-group">
+				<label for="registerPassword">Lozinka</label>
+				<input type="password" name="lozinka" [(ngModel)]="model.lozinka" required #password="ngModel" class="form-control"
+					   id="registerPassword" placeholder="Lozinka">
+			</div>
+      <div class="form-group">
+				<label for="confirmRegisterPassword">Potvrda lozinke</label>
+				<input type="password" name=" potvrda lozinke" [(ngModel)]="model.potvrdiLozinku" required #password="ngModel" class="form-control"
+					   id="confirmRegisterPassword" placeholder="Unesite ponovno istu lozinku">
+			</div>
+
+			<!-- <div class="form-group">
+				<label for="inputRole">User Role (THIS IS A ROLE)</label>
+				<select id="inputRole" class="form-control" #role (change)="roleChange(role.value)">
+					<option value="" disabled>Choose a role</option>
+					<option *ngFor="let role of roleOptions" [ngValue]="role">
+						{{ role }}
+					</option>
+
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="inputClaim">Claim (THIS IS A Claim)</label>
+				<select id="inputClaim" class="form-control" #claim (change)="claimChange(claim.value)">
+					<option value="" disabled>Choose a Developer Type</option>
+					<option *ngFor="let type of developerType" [ngValue]="type">
+						{{ type }}
+					</option>
+
+				</select>
+			</div> -->
+			<button type="submit" [disabled]="f.invalid" class="btn btn-primary">Registriraj se <i class="fas fa-sign-in-alt"></i></button>
+      <br>
+      <button class="btn btn-danger" routerLink='/valute'>Odustani</button>
+		</form>
+	</div>
+</div>

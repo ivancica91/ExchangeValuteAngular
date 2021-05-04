@@ -1,0 +1,28 @@
+<div  *ngFor="let sredstvo of sredstva" class="container">
+<div  class="card mb-4" >
+  <div class="card-body p-1">
+    <h4 class="card-title text-center mb-1">
+      <p> <strong>{{sredstvo.valuta}}</strong>
+      </p>
+    </h4>
+    <h6 class="card-title text-center mb-1">
+      <p>Iznos</p>
+      {{sredstvo.iznos}}
+    </h6>
+
+
+  </div>
+</div>
+
+<!-- <div class="container">
+  <button onclick="getProtuvrijednosti()">Protuvrijednosti u HRK</button>
+    <div [hidden]="isShowDiv" >
+      {{protuvrijednosti.valuta}}
+      {{protuvrijednosti.iznos}}
+      {{protuvrijednosti.protuvrijednostHRK}}
+    </div>
+  </div> -->
+
+</div>
+
+

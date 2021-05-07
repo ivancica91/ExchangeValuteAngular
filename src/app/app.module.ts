@@ -33,6 +33,8 @@ import { ZahtjeviOdobreniComponent } from './zahtjevi/zahtjevi-odobreni/zahtjevi
 import { ZahtjeviSviComponent } from './zahtjevi/zahtjevi-svi/zahtjevi-svi.component';
 import { ValutaAddComponent } from './valute/valuta-add/valuta-add.component';
 import { ValutaEditComponent } from './valute/valuta-edit/valuta-edit.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-email.component';
 
 @NgModule({
   declarations: [
@@ -58,19 +60,21 @@ import { ValutaEditComponent } from './valute/valuta-edit/valuta-edit.component'
     ZahtjeviOdobreniComponent,
     ZahtjeviSviComponent,
     ValutaAddComponent,
-    ValutaEditComponent
+    ValutaEditComponent,
+    TextInputComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
     ToastrModule.forRoot(),
     BsDropdownModule.forRoot(),
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000})
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000}),
+    FormsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}

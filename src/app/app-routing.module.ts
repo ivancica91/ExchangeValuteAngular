@@ -1,3 +1,4 @@
+import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-email.component';
 import { ValutaEditComponent } from './valute/valuta-edit/valuta-edit.component';
 import { ValutaAddComponent } from './valute/valuta-add/valuta-add.component';
 import { ZahtjeviOdobravanjeComponent } from './zahtjevi/zahtjevi-odobravanje/zahtjevi-odobravanje.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'sredstva/azuriraj', component: SredstvaEditComponent },
   { path: 'sredstva/protuvrijednosti', component: ProtuvrijednostiComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'confirmemail', component: ConfirmEmailComponent },
   { path: 'korisnici', component: MemberListComponent },
   { path: 'korisnici/:id', component: MemberDetailComponent },
 

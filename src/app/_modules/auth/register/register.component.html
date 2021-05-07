@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 	<div class="col-md-6 offset-md-3 mt-4">
 		<h3>Registracija novog korisnika</h3>
 		<form #f="ngForm" (ngSubmit)="onSubmit()">
@@ -43,4 +43,117 @@
       <button class="btn btn-danger" routerLink='/valute'>Odustani</button>
 		</form>
 	</div>
-</div>
+</div> -->
+
+
+<form [formGroup]= 'registerForm' *ngIf="registerForm" (ngSubmit)="registerForm.valid && register()">
+  <fieldset>
+    <legend>Registracija</legend>
+    <div class="form-group">
+      <label for="userName">Korisničko ime</label>
+      <input
+       type="text"
+        class="form-control"
+         id="userName"
+         formControlName="userName"
+          aria-describedby="idHelp"
+           placeholder="Unesite korisničko ime">
+    </div>
+    <div class="form-group">
+      <label for="ime">Ime</label>
+      <input type="text"
+       class="form-control"
+        id="ime"
+        formControlName="ime"
+         placeholder="Unesite ime">
+    </div>
+    <div class="form-group">
+      <label for="prezime">Prezime</label>
+      <input type="text"
+       class="form-control"
+        id="prezime"
+        formControlName="prezime"
+         placeholder="Unesite prezime">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text"
+       class="form-control"
+        id="email"
+        formControlName="email"
+         placeholder="Unesite email">
+    </div>
+    <div class="form-group">
+      <label for="lozinka">Lozinka</label>
+      <input type="password"
+       class="form-control"
+        id="lozinka"
+        formControlName="lozinka"
+         placeholder="Unesite lozinku">
+    </div>
+    <div class="form-group">
+      <label for="potvrdiLozinku">Potvrdi lozinku</label>
+      <input type="password"
+       class="form-control"
+        id="potvrdiLozinku"
+        formControlName="potvrdiLozinku"
+         placeholder="Unesite ponovno lozinku">
+    </div>
+    <div class="form-group">
+      <label for="slika">Slika</label>
+      <input type="text"
+       class="form-control"
+        id="slika"
+        formControlName="slika"
+         placeholder="Unesite lokaciju slike">
+         <small id="idHelp" class="form-text text-muted">npr. korisnici/iivan.jpg</small>
+    </div>
+    <button type="submit" [disabled]='!registerForm.valid' class="btn btn-primary">Registriraj se</button>
+    <button class="btn btn-default mr-2" (click)="cancel()" type="button">Odustani</button>
+
+  </fieldset>
+</form>
+
+
+
+
+
+
+
+
+<!-- ne valja, ne prikazuje imena -->
+<!-- <form [formGroup]='registerForm' (ngSubmit)="registerForm.valid && register()" autocomplete="off">
+  <h2 class="text-center text-primary">Registracija</h2>
+  <hr>
+
+  <app-text-input [formControl]='registerForm.controls["userName"]'
+      [label]='"Korisničko ime"'></app-text-input>
+  <app-text-input [formControl]='registerForm.controls["ime"]'
+      [label]='"Ime"'></app-text-input>
+  <app-text-input [formControl]='registerForm.controls["prezime"]'
+      [label]='"Prezime"'></app-text-input>
+  <app-text-input [formControl]='registerForm.controls["email"]'
+      [label]='"Email"'></app-text-input>
+  <app-text-input [formControl]='registerForm.controls["lozinka"]'
+      [label]='"Lozinka"' [type]='"password"'>
+  </app-text-input>
+  <app-text-input [formControl]='registerForm.controls["potvrdiLozinku"]'
+      [label]='"Potvrdi Lozinku"'
+      [type]='"password"'></app-text-input>
+      <app-text-input [formControl]='registerForm.controls["slika"]'
+      [label]='"Slika"'></app-text-input>
+
+
+  <div class="row" *ngIf="validationErrors.length > 0">
+      <ul class="text-danger">
+          <li *ngFor="let error of validationErrors">
+              {{error}}
+          </li>
+      </ul>
+  </div>
+
+  <div class="form-group text-center">
+      <button [disabled]='!registerForm.valid' class="btn btn-success mr-2" type="submit">Registriraj se</button>
+      <button class="btn btn-default mr-2" (click)="cancel()" type="button">Cancel</button>
+  </div>
+</form> -->

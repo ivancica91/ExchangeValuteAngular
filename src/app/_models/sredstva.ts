@@ -6,4 +6,11 @@ export interface Sredstva {
   valutaId: number;
 }
 
+export interface PostSredstva {
+  valuta: string;
+  iznos: number;
+
+}
+
+
 

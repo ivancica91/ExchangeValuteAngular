@@ -1,29 +1,23 @@
-<div  class="container">
-  <h1>Detalji valute:</h1>
 
-  <a href="#" routerLink="/valute" class="btn btn-primary">Vrati se</a>
-
-  <div *ngIf="valuta" class="row" >
-        <div>
-          <strong>Naziv:</strong>
-          <p>{{ valuta.naziv }}</p>
-      </div>
-
-      <div>
-          <strong>Slika:</strong>
-          <p><img src="{{'assets/'+ valuta.slikaValute}}" alt={{valuta.valutaId}}></p>
-      </div>
-
-      <div>
-          <strong>Tecaj:</strong>
-          <p>{{ valuta.tecaj }}</p>
-
-      </div>
-
-        <!-- TODO:
-        ubaciti himnu drzave u kojoj se valuta koristi -->
-  </div>
-
-
+  <div class="card mb-3">
+    <h3 class="card-header">Detalji valute:</h3>
+    <div *ngIf="valuta" class="card-body">
+      <h5 class="card-title">{{valuta?.naziv}}</h5>
+      <h6 class="card-subtitle text-muted">Tu će ići himna, država u kojoj se koristi?</h6>
+      <h6>Treba ubaciti i prikaz mape države kojoj valuta pripada</h6>
+    </div>
+    <img src="{{'assets/'+ valuta?.slikaValute}}" class="d-block user-select-none" width="90%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+    <div class="card-body">
+      <p class="card-text">Tečaj u odnosu na 1 HRK: {{valuta?.tecaj | number : '1.0-2'}}</p>
+    </div>
+    <div class="card-body">
+      <!-- <audio #audioOption *ngIf="himna">
+        <source src="{{'assets/'+ himna?.himna}}" type="audio/mp3"/>
+    </audio> -->
+    <div class = "btnUpdate">
+      <button type="button" mat-flat-button color="primary" [routerLink]="['edit']">Ažuriranje</button>
+    </div>
+      <a href="#"  routerLink="/valute" class="card-link">Vrati se</a>
+    </div>
   </div>
 

@@ -24,6 +24,15 @@ import { ZahtjevCardComponent } from './zahtjevi/zahtjev-card/zahtjev-card.compo
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { SredstvaCardComponent } from './sredstva/sredstva-card/sredstva-card.component';
 import { AddSredstvaComponent } from './sredstva/add-sredstva/add-sredstva.component';
+import { SredstvaEditComponent } from './sredstva/sredstva-edit/sredstva-edit.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { ProtuvrijednostiComponent } from './sredstva/protuvrijednosti/protuvrijednosti.component';
+import { ZahtjeviOdobravanjeComponent } from './zahtjevi/zahtjevi-odobravanje/zahtjevi-odobravanje.component';
+import { ZahtjeviOdobreniComponent } from './zahtjevi/zahtjevi-odobreni/zahtjevi-odobreni.component';
+import { ZahtjeviSviComponent } from './zahtjevi/zahtjevi-svi/zahtjevi-svi.component';
+import { ValutaAddComponent } from './valute/valuta-add/valuta-add.component';
+import { ValutaEditComponent } from './valute/valuta-edit/valuta-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +51,14 @@ import { AddSredstvaComponent } from './sredstva/add-sredstva/add-sredstva.compo
     ZahtjevCardComponent,
     MemberCardComponent,
     SredstvaCardComponent,
-    AddSredstvaComponent
+    AddSredstvaComponent,
+    SredstvaEditComponent,
+    ProtuvrijednostiComponent,
+    ZahtjeviOdobravanjeComponent,
+    ZahtjeviOdobreniComponent,
+    ZahtjeviSviComponent,
+    ValutaAddComponent,
+    ValutaEditComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +67,8 @@ import { AddSredstvaComponent } from './sredstva/add-sredstva/add-sredstva.compo
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CommonModule,
+    ToastrModule.forRoot(),
     BsDropdownModule.forRoot(),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000})
   ],

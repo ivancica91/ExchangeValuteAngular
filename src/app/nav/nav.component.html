@@ -16,22 +16,62 @@
         </li>
       </ng-container>
       <ng-container *ngIf="authService.currentUser$ | async">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a routerLink="/zahtjevi" routerLinkActive='active' class="nav-link">Zahtjevi</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a routerLink="/sredstva" routerLinkActive='active' class="nav-link">Sredstva</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a routerLink="/korisnici" routerLinkActive='active' class="nav-link">Korisnici</a>
       </li>
+      <li class="nav-item">
+        <div class="nav-item dropdown" dropdown>
+          <a class="dropdown-toggle text-light" dropdownToggle> Opcije Valuta</a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a routerLink='/valute/nova' class="dropdown-item">Dodaj valutu</a>
+            <!-- <a routerLink='/sredstva/azuriraj' class="dropdown-item">Ažuriraj sredstva</a>
+            <a routerLink='/sredstva/protuvrijednosti' class="dropdown-item">Protuvrijednosti</a> -->
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <div class="nav-item dropdown" dropdown>
+          <a class="dropdown-toggle text-light" dropdownToggle> Sredstva</a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a routerLink='/sredstva' class="dropdown-item">Dostupna sredstva</a>
+            <a routerLink='/sredstva/nova' class="dropdown-item">Dodaj sredstva</a>
+            <a routerLink='/sredstva/azuriraj' class="dropdown-item">Ažuriraj sredstva</a>
+            <a routerLink='/sredstva/protuvrijednosti' class="dropdown-item">Protuvrijednosti</a>
+          </div>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <div class="nav-item dropdown" dropdown>
+          <a class="dropdown-toggle text-light" dropdownToggle> Zahtjevi</a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a routerLink='/zahtjevi' class="dropdown-item">Pregled poslanih zahtjeva</a>
+            <a routerLink='/zahtjevi/novi' class="dropdown-item">Novi zahtjev</a>
+            <a routerLink='/zahtjevi/svi' class="dropdown-item">Pregled svih zahtjeva</a>
+            <a routerLink='/zahtjevi/odobreni' class="dropdown-item">Pregled svih odobrenih zahtjeva</a>
+            <a routerLink='/zahtjevi/odobravanje' class="dropdown-item">Odobravanje zahtjeva</a>
+          </div>
+        </div>
+      </li>
+
+
     </ng-container>
     </ul>
+
+
 
               <div class="nav-item dropdown" *ngIf="(authService.currentUser$ | async) as user" dropdown>
                 <a class="dropdown-toggle text-light" dropdownToggle> Dobrodošao {{user.userName | titlecase}}</a>
                 <div class="dropdown-menu mt-3" *dropdownMenu>
-                  <a routerLink='/valute' class="dropdown-item">Uredi profil</a>
+                  <a routerLink='/korisnici/{{user.id}}' class="dropdown-item">Uredi profil</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" (click)="logout()" >Odjava</a>
                 </div>

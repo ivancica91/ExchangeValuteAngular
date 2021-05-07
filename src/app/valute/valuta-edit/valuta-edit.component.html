@@ -1,0 +1,55 @@
+<form [formGroup]= "valutaForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Ažuriranje valute</legend>
+    <div class="form-group">
+      <label for="korisnikId">Id moderatora</label>
+      <input
+       type="number"
+        class="form-control"
+         id="korisnikId"
+         formControlName="korisnikId"
+          aria-describedby="idHelp"
+           placeholder="Unesite Id moderatora">
+      <small id="idHelp" class="form-text text-muted">Unesite Id korisnika koji će biti zadužen za administraciju valute</small>
+    </div>
+    <div class="form-group">
+      <label for="naziv">Naziv valute</label>
+      <input type="text"
+       class="form-control"
+        id="naziv"
+        formControlName="naziv"
+         placeholder="Unesite naziv valute">
+         <small id="idHelp" class="form-text text-muted">Unesite naziv valute, npr EUR, HRK, itd...</small>
+    </div>
+    <div class="form-group">
+      <label for="slikaValute">Lokacija slike valute</label>
+      <input type="text"
+       class="form-control"
+        id="slikaValute"
+        formControlName="slikaValute"
+         placeholder="Unesite lokaciju slike valute">
+         <small id="idHelp" class="form-text text-muted">Unesite lokaciju slike valute, npr. valute/eur.jpg </small>
+    </div>
+    <div class="form-group">
+      <label for="aktivnoOd">Aktivno od</label>
+      <input type="time"
+       class="form-control"
+        id="aktivnoOd"
+        formControlName="aktivnoOd"
+         placeholder="Unesite početno vrijeme ažuriranja valute">
+         <small id="idHelp" class="form-text text-muted">Unesite početno vrijeme od kada se valuta može ažurirati</small>
+    </div>
+    <div class="form-group">
+      <label for="aktivnoDo">Aktivno do</label>
+      <input type="time"
+       class="form-control"
+        id="aktivnoDo"
+        formControlName="aktivnoDo"
+         placeholder="Unesite završno vrijeme ažuriranja valute">
+         <small id="idHelp" class="form-text text-muted">Unesite završno vrijeme do kada se valuta može ažurirati</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Ažuriraj valutu</button>
+  </fieldset>
+</form>
+
+

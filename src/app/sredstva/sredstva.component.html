@@ -1,4 +1,11 @@
-<button routerLink="/sredstva/nova">Dodaj sredstva</button>
+<!-- <button  type="button" class="btn btn-primary btn-lg btn-block" routerLink="/sredstva/nova">Dodaj sredstva</button>
+<button  type="button" class="btn btn-primary btn-lg btn-block" routerLink="/sredstva/azuriraj">Ažuriraj iznos sredstvava</button>
+<button  type="button" class="btn btn-primary btn-lg btn-block" routerLink="/sredstva/protuvrijednosti">Protuvrijednosti u HRK</button> -->
+
+<h4>Vaša sredstva:</h4>
+<br>
+
+<br>
 <div class="row">
   <div *ngIf="sredstva" class="col-2">
 <app-sredstva-card [sredstva]="sredstva"></app-sredstva-card>
@@ -8,14 +15,7 @@
 
 
 
-<!-- <div *ngFor="let protuvrijednost of protuvrijednosti" class="container">
-  <button onclick="getProtuvrijednosti()">Protuvrijednosti u HRK</button>
-    <div [hidden]="isShowDiv" >
-      {{protuvrijednost.valuta}}
-      {{protuvrijednost.iznos}}
-      {{protuvrijednost.protuvrijednostHRK}}
-    </div>
-  </div> -->
+
 
 
 

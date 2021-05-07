@@ -1,0 +1,60 @@
+<form [formGroup]= "valutaForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Nova valuta</legend>
+    <!-- <div class="form-group row">
+      <label for="valuta" class="col-sm-2 col-form-label">Valuta </label>
+      <div class="col-sm-10">
+        <input type="text" readonly="" class="form-control-plaintext" id="valuta" value="npr 1 za hrk">
+      </div>
+    </div> -->
+    <div class="form-group">
+      <label for="korisnikId">Id moderatora</label>
+      <input
+       type="number"
+        class="form-control"
+         id="korisnikId"
+         formControlName="korisnikId"
+          aria-describedby="idHelp"
+           placeholder="Unesite Id moderatora">
+      <small id="idHelp" class="form-text text-muted">Unesite Id korisnika koji će biti zadužen za administraciju valute</small>
+    </div>
+    <div class="form-group">
+      <label for="naziv">Naziv valute</label>
+      <input type="text"
+       class="form-control"
+        id="naziv"
+        formControlName="naziv"
+         placeholder="Unesite naziv valute">
+         <small id="idHelp" class="form-text text-muted">Unesite naziv valute, npr EUR, HRK, itd...</small>
+    </div>
+    <div class="form-group">
+      <label for="slikaValute">Lokacija slike valute</label>
+      <input type="text"
+       class="form-control"
+        id="slikaValute"
+        formControlName="slikaValute"
+         placeholder="Unesite lokaciju slike valute">
+         <small id="idHelp" class="form-text text-muted">Unesite lokaciju slike valute, npr. valute/eur.jpg </small>
+    </div>
+    <div class="form-group">
+      <label for="aktivnoOd">Aktivno od</label>
+      <input type="time"
+       class="form-control"
+        id="aktivnoOd"
+        formControlName="aktivnoOd"
+         placeholder="Unesite početno vrijeme ažuriranja valute">
+         <small id="idHelp" class="form-text text-muted">Unesite početno vrijeme od kada se valuta može ažurirati</small>
+    </div>
+    <div class="form-group">
+      <label for="aktivnoDo">Aktivno do</label>
+      <input type="time"
+       class="form-control"
+        id="aktivnoDo"
+        formControlName="aktivnoDo"
+         placeholder="Unesite završno vrijeme ažuriranja valute">
+         <small id="idHelp" class="form-text text-muted">Unesite završno vrijeme do kada se valuta može ažurirati</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj valutu</button>
+  </fieldset>
+</form>
+

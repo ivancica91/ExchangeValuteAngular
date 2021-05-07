@@ -1,1 +1,31 @@
-<p>add-sredstva works!</p>
+<form [formGroup]= "sredstvaForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Nova sredstva</legend>
+    <!-- <div class="form-group row">
+      <label for="valuta" class="col-sm-2 col-form-label">Valuta </label>
+      <div class="col-sm-10">
+        <input type="text" readonly="" class="form-control-plaintext" id="valuta" value="npr 1 za hrk">
+      </div>
+    </div> -->
+    <div class="form-group">
+      <label for="valutaId">Valuta</label>
+      <input
+       type="text"
+        class="form-control"
+         id="valuta"
+         formControlName="valuta"
+          aria-describedby="idHelp"
+           placeholder="Unesite naziv valute">
+      <small id="idHelp" class="form-text text-muted">Unesite naziv valute koju želite dodati u svoja sredstva</small>
+    </div>
+    <div class="form-group">
+      <label for="iznos">Iznos</label>
+      <input type="number"
+       class="form-control"
+        id="iznos"
+        formControlName="iznos"
+         placeholder="Unesite iznos">
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj sredstva</button>
+  </fieldset>
+</form>

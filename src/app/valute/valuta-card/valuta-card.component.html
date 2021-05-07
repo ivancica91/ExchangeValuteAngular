@@ -1,8 +1,8 @@
-<div class="card mb-4">
-  <div class="card-body p-1" routerLink='/valuta/{{valuta.valutaId}}'>
-    <h5 class="card-title text-center mb-1">
-      {{valuta.naziv}}
-    </h5>
+
+<div class="card border-dark mb-3" style="max-width: 20rem;" routerLink='/valuta/{{valuta.valutaId}}'>
+  <div class="card-header">{{valuta.valutaId}}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{valuta.naziv}}</h4>
     <img src="{{'assets/'+ valuta.slikaValute}}" alt="{{valuta.naziv}}" class="card-img-top">
   </div>
 </div>

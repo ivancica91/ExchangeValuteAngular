@@ -1,17 +1,10 @@
-<div class="card mb-4">
-  <div class="card-body p-1" routerLink='{{zahtjev.zahtjevId}}'>
-    <h5 class="card-title text-center mb-1">
-      <p>Prodajna valuta</p>
-      {{zahtjev.prodajemValutaId}}
-    </h5>
-    <h5 class="card-title text-center mb-1">
-      <p>Iznos prodaje</p>
-      {{zahtjev.iznos}}
-    </h5>
-
-    <h5 class="card-title text-center mb-1">
-      <p>Kupovna valuta</p>
-      {{zahtjev.kupujemValutaId}}
-    </h5>
+<div  class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">{{zahtjev.zahtjevId}}</div>
+  <div class="card-header text-muted"> Prodajna valuta: {{zahtjev.prodajemValuta}}</div>
+  <div class="card-header text-muted"> Kupovna valuta: {{zahtjev.kupujemValuta}}</div>
+  <div class="card-body">
+    <h4 class="card-title">Iznos</h4>
+    <p class="card-text">{{zahtjev.iznos}}</p>
   </div>
 </div>
+

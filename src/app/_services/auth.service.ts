@@ -15,39 +15,8 @@ export class AuthService {
   currentUser$ = this.currentUserSource.asObservable();
 
 
-  // helper = new JwtHelperService();
-
-  // currentUser: User = {
-  //   id: null,
-  //   userName: null,
-  //   email: null,
-  //   roles: null,
-  //   ime: null,
-  //   prezime: null,
-  //   token: null,
-  //   userRoles: null,
-  //   slika: null,
-  //   lozinka: null
-
-  // }
-
   constructor(private http: HttpClient) { }
 
-  // login(model: any): Observable<User> {
-  //   return this.http.post(this.baseUrl + 'Auth/login', model).pipe(
-  //     map((response: any) => {
-  //       const decodedToken = this.helper.decodeToken(response.token);
-
-  //       this.currentUser.userName = decodedToken.given_name;
-  //       this.currentUser.email = decodedToken.email;
-  //       this.currentUser.roles = decodedToken.role;
-
-  //       localStorage.setItem('token', response.token);
-
-  //       return this.currentUser;
-  //     })
-  //   );
-  // }
 
   login(model: any) {
     return this.http.post(this.baseUrl + 'Auth/login', model).pipe(
@@ -59,14 +28,14 @@ export class AuthService {
           this.setCurrentUser(user);
         }
       })
-    );
+    )
   }
 
   register(model: any) {
     return this.http.post(this.baseUrl + 'Auth/register', model).pipe(
       map((user: User) => {
         if(user) {
-          localStorage.setItem('user', JSON.stringify(user));
+          // localStorage.setItem('user', JSON.stringify(user));
           this.setCurrentUser(user);
         }
         //return user; // makni kasnije taj line, samo da vidim sta vraca kad se registrira user
@@ -84,26 +53,6 @@ export class AuthService {
     this.currentUserSource.next(user);
   }
 
-  // loggedIn(): boolean {
-  //   const token = localStorage.getItem('token');
-  //   return !this.helper.isTokenExpired(token);
-  // }
-
-  // logout() {
-  //   this.currentUser = {
-  //     id: null,
-  //     userName: null,
-  //     email: null,
-  //     roles: null,
-  //     ime: null,
-  //     prezime: null,
-  //     token: null,
-  //     userRoles: null,
-  //     slika: null,
-  //     lozinka: null
-  //     };
-  //   localStorage.removeItem('token');
-  // }
 
   logout() {
     localStorage.removeItem('user');

@@ -1,7 +1,7 @@
 import { SredstvaService } from './../_services/sredstva.service';
 import { Component, OnInit } from '@angular/core';
 import { Sredstva } from '../_models/sredstva';
-import { Protuvrijednost } from '../_models/Protuvrijednost';
+import { Protuvrijednost } from '../_models/protuvrijednost';
 
 @Component({
   selector: 'app-sredstva',
@@ -10,7 +10,7 @@ import { Protuvrijednost } from '../_models/Protuvrijednost';
 })
 export class SredstvaComponent implements OnInit {
   sredstva?: Sredstva[];
-  protuvrijednosti?: Protuvrijednost[];
+  // protuvrijednosti?: Protuvrijednost[];
   // isShowDiv = false;
 
 
@@ -34,25 +34,18 @@ export class SredstvaComponent implements OnInit {
     )
   }
 
-  // getProtuvrijednosti(): void {
+  //   getProtuvrijednosti(): void {
   //   this.sredstvaService.getProtuvrijednost()
   //   .subscribe(
   //     data => {
   //       this.protuvrijednosti = data;
-
-
   //       console.log(data);
   //       this.isShowDiv = !this.isShowDiv;
-
   //     },
   //     error => {
   //       console.log(error);
   //     }
   //   )
   // }
-
-
-
-
 
 }

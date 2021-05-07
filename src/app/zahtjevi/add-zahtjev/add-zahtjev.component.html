@@ -1,1 +1,44 @@
-<p>add-zahtjev works!</p>
+<form [formGroup]= "zahtjevForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Novi zahtjev</legend>
+    <!-- <div class="form-group row">
+      <label for="valuta" class="col-sm-2 col-form-label">Valuta </label>
+      <div class="col-sm-10">
+        <input type="text" readonly="" class="form-control-plaintext" id="valuta" value="npr 1 za hrk">
+      </div>
+    </div> -->
+    <div class="form-group">
+      <label for="prodajemValuta">Prodajna valuta</label>
+      <input
+       type="text"
+        class="form-control"
+         id="prodajemValuta"
+         formControlName="prodajemValuta"
+          aria-describedby="idHelp"
+           placeholder="Unesite naziv valute koju želite prodati">
+      <small id="idHelp" class="form-text text-muted">Unesite naziv valute koju želite prodati</small>
+    </div>
+    <div class="form-group">
+      <label for="iznos">Iznos</label>
+      <input type="number"
+       class="form-control"
+        id="iznos"
+        formControlName="iznos"
+         placeholder="Unesite iznos koji želite prodati">
+    </div>
+    <div class="form-group">
+      <label for="kupujemValuta">Kupovna valuta </label>
+      <input
+       type="text"
+        class="form-control"
+         id="kupujemValuta"
+         formControlName="kupujemValuta"
+          aria-describedby="idHelp"
+           placeholder="Unesite naziv valute koju želite kupiti">
+      <small id="idHelp" class="form-text text-muted">Unesite naziv valute koju želite kupiti</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dodaj zahtjev</button>
+  </fieldset>
+</form>
+

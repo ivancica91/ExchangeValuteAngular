@@ -12,9 +12,8 @@ export class ValutaCardComponent implements OnInit {
   @Input()
   valuta: Valuta;
 
-  constructor(private valutaService: ValuteService, private route: ActivatedRoute) { }
+  constructor(private valuteService: ValuteService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-
 }

@@ -17,19 +17,6 @@ export class ZahtjeviComponent implements OnInit {
     this.getZahtjeveByUser();
   }
 
-  getZahtjeve(): void {
-    this.zahtjeviService.getAll()
-    .subscribe(
-      data => {
-        this.zahtjevi = data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
-    )
-  }
-
   getZahtjeveByUser(): void {
     this.zahtjeviService.getZahtjeveByLoggedUser()
     .subscribe(

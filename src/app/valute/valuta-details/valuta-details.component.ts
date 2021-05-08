@@ -4,6 +4,8 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { PutTecaj, Valuta } from 'src/app/_models/valuta';
 import { Himna } from 'src/app/_models/himna';
+import { AuthService } from 'src/app/_services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-valuta-details',
@@ -20,12 +22,14 @@ putTecaj: PutTecaj;
   constructor(
     private valuteService: ValuteService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.valutaId =+this.route.snapshot.paramMap.get('valutaId'); // bez + cita kao string i ne valja
     this.loadValuta();
-    this.loadHimna();
+    // this.getId();
+    // this.loadHimna();
 
     }
 
@@ -52,15 +56,29 @@ putTecaj: PutTecaj;
   //   this.audioPlayerRef.nativeElement.play();
   // }
 
-  // putTecajValute() {
-  //   this.valuteService.putTecajValute(this.putTecaj.valutaId).subscribe(tecaj => {
-  //     this.putTecaj = tecaj;
-
-  //   })
-  // }
-
-
+  putTecajValute() {
+    this.valuteService.putTecajValute(this.valutaId).subscribe(valuta => {
+      this.valuta = valuta;
+      console.log(valuta);
+      this.toastr.success("Tečaj uspješno ažuriran.")
+      this.reloadCurrentPage();
 
 
+    },
+    error => {
+      console.log(error);
+      this.toastr.warning(error.error);
+    });
+  }
+
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+
+   // ideja bila da usporedi Id ulogiranog usera i Id-a usera koji je zaduzen za valutu, ako su isti, pokazi gumb za azuriranje tecaja
+   getId(){
+    var data = localStorage.getItem('id');
+    console.log(data)
+   }
 
 }

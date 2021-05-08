@@ -23,8 +23,6 @@ export class AuthService {
       map((response: User) => {
         const user = response;
         if (user) {
-          // localStorage.setItem('user', JSON.stringify(user));
-          // console.log(user)
           this.setCurrentUser(user);
         }
       })
@@ -38,9 +36,8 @@ export class AuthService {
           // localStorage.setItem('user', JSON.stringify(user));
           this.setCurrentUser(user);
         }
-        //return user; // makni kasnije taj line, samo da vidim sta vraca kad se registrira user
       })
-    );
+    )
   }
 
   setCurrentUser(user: User) {

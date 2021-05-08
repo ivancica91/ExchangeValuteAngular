@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { ValuteService } from './../../_services/valute.service';
 import { Valuta } from './../../_models/valuta';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-valute-list',
@@ -12,10 +14,13 @@ export class ValuteListComponent implements OnInit {
   // currentValuta?: Valuta;
 
 
-  constructor(private valuteService:ValuteService) { }
+  constructor(private valuteService:ValuteService, private toastr: ToastrService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getValute();
+
+        // hoce ako ovdje stavim pa pozove cim otvori stranicu, ali ne mogu dobiti da otvara na klik
+    // this.valuteToXml();
   }
 
   getValute(): void {
@@ -24,6 +29,36 @@ export class ValuteListComponent implements OnInit {
       data => {
         this.valute = data;
         console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  valuteToXml(): void {
+    this.valuteService.valuteToXml()
+    .subscribe (
+      data => {
+        this.valute = data;
+        console.log(data);
+        this.ngOnInit();
+        this.toastr.success("Valute exportane u Xml file")
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  valuteFromXml(): void {
+    this.valuteService.valuteFromXml()
+    .subscribe (
+      data => {
+        this.valute = data;
+        console.log(data);
+        this.ngOnInit();
+        this.toastr.success("Valute importane iz Xml file-a navedenog u backendu")
       },
       error => {
         console.log(error);

@@ -1,5 +1,31 @@
 <h4>Svi zahtjevi:</h4>
 <br>
+
+
+<form [formGroup]= "odobriForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Odobravanje zahtjeva</legend>
+    <div class="form-group">
+      <label for="zahtjevId">Zahtjev Id</label>
+      <input
+       type="number"
+        class="form-control"
+         id=""
+         formControlName="zahtjevId"
+          aria-describedby="idHelp"
+           placeholder="Unesite Id zahtjeva kojeg želite odobriti">
+    </div>
+    <button type="submit" class="btn btn-primary">Odobri zahtjev</button>
+  </fieldset>
+</form>
+
+<br>
+
+
+
+
+
+
 <div class="row">
   <div *ngFor="let zahtjev of zahtjevi" class="col-2">
 <app-zahtjev-card [zahtjev]="zahtjev"></app-zahtjev-card>

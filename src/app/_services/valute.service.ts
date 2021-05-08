@@ -21,16 +21,11 @@ export class ValuteService {
     return this.http.get<Valuta[]>(this.baseUrl + 'Valute/popisValuta');
   }
 
-
   getValuta(valutaId: number) {
     const valuta = this.valute.find(v => v.valutaId === valutaId);
     if (valuta !== undefined) return of (valuta);
     return this.http.get<Valuta>(this.baseUrl + 'Valute/' + valutaId);
   }
-
-  // update(id: any, data: any): Observable<any> {
-  //   return this.http.put(`${this.baseUrl} +'Valute/' + ${id}`, data);
-  // }
 
   updateValuta(valutaId: number, valuta: PostValuta): Observable<any> {
     return this.http.put(this.baseUrl + 'Valute/AzurirajValutu/' + valutaId, valuta)
@@ -48,10 +43,25 @@ export class ValuteService {
     );
   }
 
-  putTecajValute( putTecaj: PutTecaj) {
-    return this.http.put<PutTecaj>(this.baseUrl + 'Valute/AzurirajTecaj', putTecaj);
+  // ovo ne radi, smisli kako
+  // putTecajValute( putTecaj: PutTecaj): Observable<any> {
+  //   return this.http.put<PutTecaj>(this.baseUrl + 'Valute/AzurirajTecaj', putTecaj);
+  // }
 
+  putTecajValute( valutaId: number): Observable<any> {
+    return this.http.put<any>(this.baseUrl + 'Valute/AzurirajTecaj/' + valutaId, null);
   }
+
+
+  valuteToXml(): Observable<any> {
+    return this.http.get<void>(this.baseUrl + 'Valute/valuteToXml');
+  }
+
+  valuteFromXml(): Observable<any> {
+    return this.http.put<void>(this.baseUrl + 'Valute/ValuteFromXml', null);
+  }
+
+
 
 
 

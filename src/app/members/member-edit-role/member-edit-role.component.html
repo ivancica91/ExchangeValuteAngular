@@ -9,7 +9,7 @@
       <tr *ngFor="let member of members">
           <td>{{member.userName}}</td>
           <td>{{member.roles}}</td>
-          <td><button  class="btn btn-primary">Ažuriraj uloge</button></td>
+          <td><button (click)="openRolesModal(member)" class="btn btn-primary">Ažuriraj uloge</button></td>
       </tr>
   </table>
 </div>

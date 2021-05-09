@@ -25,8 +25,7 @@ export class MemberEditRoleComponent implements OnInit {
   members: Partial<Member[]>;
   bsModalRef: BsModalRef;
 
-  constructor(private http: HttpClient, private membersService: MembersService,private modalService: BsModalService, private router: Router, private toastr: ToastrService,
-    private progressService: ProgressbarService, private alertService: AlertService, private formBuilder: FormBuilder) {
+  constructor(private membersService: MembersService,private modalService: BsModalService) {
       // this.roleForm = this.formBuilder.group({
       //   userName: ['', [Validators.required]],
       //   roles: ['', [Validators.required]],
@@ -76,9 +75,9 @@ export class MemberEditRoleComponent implements OnInit {
     const roles = [];
     const userRoles = member.roles;
     const availableRoles: any[] = [
-      {name: 'Administrator', value: 'Administrator'},
-      {name: 'Moderator', value: 'Moderator'},
-      {name: 'Korisnik', value: 'Korisnik'}
+      {name: 'administrator', value: 'administrator'},
+      {name: 'moderator', value: 'moderator'},
+      {name: 'korisnik', value: 'korisnik'}
     ];
 
     availableRoles.forEach(role => {

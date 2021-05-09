@@ -42,12 +42,6 @@ const routes: Routes = [
   { path: 'korisnik/edit', component: MemberDetailComponent },
   { path: 'korisnik/novi', component: MemberAddComponent },
   { path: 'korisnik/role', component: MemberEditRoleComponent },
-
-
-
-
-
-  //dodati i members
   { path: '**', component: ValuteListComponent, pathMatch: 'full' }
 ];
 

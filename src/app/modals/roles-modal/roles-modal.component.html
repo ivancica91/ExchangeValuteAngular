@@ -12,7 +12,7 @@
               [checked]="role.checked"
               value="role.name"
               (change)="role.checked = !role.checked"
-              [disabled]="role.name === 'Administrator' && member.userName === 'Admin'"
+              [disabled]="role.name === 'administrator' && member.userName === 'admin'"
           >
           <label>{{role.name}}</label>
       </div>

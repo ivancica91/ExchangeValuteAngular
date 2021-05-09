@@ -66,7 +66,7 @@ export class MembersService {
   }
 
   updateMemberRoles(userName: string, roles: string[]) {
-    return this.http.post(this.baseUrl + 'Korisnik/editRoles/' + userName + '?roles=' + roles, {});
+    return this.http.post(this.baseUrl + 'Korisnik/editRoles/' + userName + '?role=' + roles, {});
   }
 
   // editRoles(putRole: PutRole): Observable<any> {

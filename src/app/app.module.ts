@@ -89,7 +89,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RolesModalComponent]
 
 })
 export class AppModule { }

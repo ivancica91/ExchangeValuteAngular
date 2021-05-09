@@ -1,0 +1,61 @@
+<form [formGroup]= "memberForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Novi korisnik</legend>
+    <div class="form-group">
+      <label for="userName">Korisničko ime</label>
+      <input
+       type="text"
+        class="form-control"
+         id="userName"
+         formControlName="userName"
+          aria-describedby="idHelp"
+           placeholder="Unesite korisničko ime novog korisnika">
+    </div>
+    <div class="form-group">
+      <label for="ime">Ime</label>
+      <input type="text"
+       class="form-control"
+        id="ime"
+        formControlName="ime"
+         placeholder="Unesite ime korisnika">
+    </div>
+    <div class="form-group">
+      <label for="prezime">Prezime</label>
+      <input type="text"
+       class="form-control"
+        id="prezime"
+        formControlName="prezime"
+         placeholder="Unesite prezime korisnika">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text"
+       class="form-control"
+        id="email"
+        formControlName="email"
+         placeholder="Unesite email korisnika.">
+         <small id="idHelp" class="form-text text-muted">Za korisnike dodane od strane administratora, nije potrebna verifikacija emaila te je isti automatski potvrđen.</small>
+    </div>
+    <div class="form-group">
+      <label for="slika">Slika</label>
+      <input type="text"
+       class="form-control"
+        id="slika"
+        formControlName="slika"
+         placeholder="Unesite lokaciju slike korisnika">
+         <small id="idHelp" class="form-text text-muted">Unesite lokaciju slike korisnika, npr. korisnici/aivan.jpg </small>
+    </div>
+    <div class="form-group">
+      <label for="lozinka">Lozinka</label>
+      <input type="password"
+       class="form-control"
+        id="lozinka"
+        formControlName="lozinka"
+         placeholder="Unesite lozinku korisnika">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dodaj korisnika</button>
+  </fieldset>
+</form>
+
+

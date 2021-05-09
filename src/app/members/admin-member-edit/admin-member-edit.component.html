@@ -1,0 +1,39 @@
+<div class="row" *ngIf="member">
+  <div class="col-4 text-center">
+      <h1> Editiraj račun {{member.userName}}</h1>
+  </div>
+  <div class="col-8">
+      <div class="alert alert-info" *ngIf="editForm.dirty">
+         <strong>Info: </strong> Napravili ste izmjene na profilu. Sve nespremljene izmjene biti će izgubljene.
+      </div>
+  </div>
+  <div class="col-4">
+      <div class="card">
+          <img src="{{'assets/'+ member.slika}}" alt="{{member.userName}}" class="card-img-top img-thumbnail">
+          <div class="card-body">
+              <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMemberById()">
+                  <div>
+                      <strong>Korisničko ime:</strong><br>
+                      <p>{{member.userName}}</p>
+                  </div>
+                  <div>
+                      <strong>Ime</strong><br>
+                      <textarea class="form-control" [(ngModel)]="member.ime" name="ime" rows="1"></textarea>
+                  </div>
+                  <div>
+                      <strong>Prezime</strong><br>
+                      <textarea class="form-control" [(ngModel)]="member.prezime" name="prezime" rows="1"></textarea>
+                  </div>
+                  <!-- <div>
+                      <strong>Email</strong><br>
+                      <textarea class="form-control" [(ngModel)]="member.email" name="email" rows="1"></textarea>
+                  </div> -->
+              </form>
+
+          </div>
+          <div class="card-footer">
+              <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-success btn-block">Spremi izmjene</button>
+          </div>
+      </div>
+  </div>
+</div>

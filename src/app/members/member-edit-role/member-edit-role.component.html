@@ -1,0 +1,73 @@
+<div class="container">
+<div class="row">
+  <table class="table">
+      <tr>
+          <th style="width: 30%;">Korisničko ime</th>
+          <th style="width: 40%;">Trenutne uloge</th>
+          <th style="width: 30%;"></th>
+      </tr>
+      <tr *ngFor="let member of members">
+          <td>{{member.userName}}</td>
+          <td>{{member.roles}}</td>
+          <td><button  class="btn btn-primary">Ažuriraj uloge</button></td>
+      </tr>
+  </table>
+</div>
+</div>
+
+
+ <!-- <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Promjena uloga</legend>
+    <div class="form-group">
+      <label for="userName">Korisničko ime</label>
+      <input
+       type="text"
+        class="form-control"
+         id="userName"
+         formControlName="userName"
+          aria-describedby="idHelp"
+           placeholder="Unesite korisničko ime">
+    </div>
+    <div class="form-group">
+      <label for="roles">Uloga</label>
+      <input
+       type="text"
+        class="form-control"
+         id="roles"
+         formControlName="roles"
+          aria-describedby="idHelp"
+           placeholder="Unesite ulogu">
+    </div> -->
+
+    <!-- <div class="form-group">
+  <label for="roles">Uloge</label>
+  <select formControlName="roles" id="roles">
+    <option *ngFor="let rola of roles; let i = index" [value]="roles[i].id">
+      {{roles[i].name}}
+    </option>
+  </select>
+</div> -->
+  <!-- <button type="submit" class="btn btn-primary">Promijeni</button>
+</fieldset>
+</form> -->
+
+
+
+
+
+<!-- <h6>Popis korisnika s ulogama</h6>
+<div class="row">
+  <div *ngFor="let rola of role" class="col-2">
+    <div  class="card text-white bg-primary mb-3"  style="max-width: 20rem;">
+      <div class="card-header text-muted"> Korisnik: {{rola.userName}}</div>
+      <div class="card-header text-muted"> Uloga valuta: {{rola.roles}}</div>
+    </div>
+
+  </div>
+</div> -->
+
+
+
+
+

@@ -36,7 +36,6 @@ import { ValutaAddComponent } from './valute/valuta-add/valuta-add.component';
 import { ValutaEditComponent } from './valute/valuta-edit/valuta-edit.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-email.component';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AdminMemberEditComponent } from './members/admin-member-edit/admin-member-edit.component';
 import { MemberAddComponent } from './members/member-add/member-add.component';
 import { MemberEditRoleComponent } from './members/member-edit-role/member-edit-role.component';
@@ -85,7 +84,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BsDropdownModule.forRoot(),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000}),
     FormsModule,
-    LeafletModule,
     ModalModule.forRoot()
   ],
   providers: [

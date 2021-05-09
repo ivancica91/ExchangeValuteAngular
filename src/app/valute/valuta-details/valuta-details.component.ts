@@ -7,7 +7,7 @@ import { PutTecaj, Valuta } from 'src/app/_models/valuta';
 import { Himna } from 'src/app/_models/himna';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import * as L from 'leaflet';
+// import * as L from 'leaflet';
 
 @Component({
   selector: 'app-valuta-details',
@@ -23,36 +23,36 @@ putTecaj: PutTecaj;
 lat: string;
 lng: string;
 drzava: Drzava;
-private map: L.Map;
+// private map: L.Map;
 
 
-private centroid: L.LatLngExpression= [45.06463158257005, 14.778615263851686]; // Hrvatska
+// private centroid: L.LatLngExpression= [45.06463158257005, 14.778615263851686]; // Hrvatska
 
 
-private initMap(): void {
-  this.map = L.map('map', {
-    center: this.centroid,
-    zoom: 8
-  });
+// private initMap(): void {
+//   this.map = L.map('map', {
+//     center: this.centroid,
+//     zoom: 8
+//   });
 
-  const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 10,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    });
+//   const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//       maxZoom: 18,
+//       minZoom: 10,
+//       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//     });
 
-    // create 5 random jitteries and add them to map
-    const jittery = Array(5).fill(this.centroid).map(
-        x => [x[0] + (Math.random() - .5)/10, x[1] + (Math.random() - .5)/10 ]
-      ).map(
-        x => L.marker(x as L.LatLngExpression)
-      ).forEach(
-        x => x.addTo(this.map)
-      );
+//     // create 5 random jitteries and add them to map
+//     const jittery = Array(5).fill(this.centroid).map(
+//         x => [x[0] + (Math.random() - .5)/10, x[1] + (Math.random() - .5)/10 ]
+//       ).map(
+//         x => L.marker(x as L.LatLngExpression)
+//       ).forEach(
+//         x => x.addTo(this.map)
+//       );
 
-    tiles.addTo(this.map);
+//     tiles.addTo(this.map);
 
-  }
+//   }
 
 
   constructor(
@@ -65,7 +65,7 @@ private initMap(): void {
     this.valutaId =+this.route.snapshot.paramMap.get('valutaId'); // bez + cita kao string i ne valja
     this.loadValuta();
     this.loadDrzava()
-    this.initMap();
+    // this.initMap();
     // this.getId();
     // this.loadHimna();
     }
@@ -74,8 +74,6 @@ private initMap(): void {
     private loadDrzava() {
       this.valuteService.getDrzavaByValutaId(this.valutaId).subscribe(drzava => {
         this.drzava = drzava;
-        this.lat = drzava.sirina;
-        this.lng = drzava.duljina;
         console.log(drzava);
       },
       error => {

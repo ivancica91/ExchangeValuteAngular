@@ -47,7 +47,6 @@ export class ZahtjeviSviComponent implements OnInit {
     this.zahtjeviService.odobravanjeZahtjeva(this.odobriForm.value).subscribe(response => {
       this.ngOnInit();
       this.toastr.success('Zahtjev uspješno prihvaćen.')
-
     },
     (error) => {
       console.log(error);

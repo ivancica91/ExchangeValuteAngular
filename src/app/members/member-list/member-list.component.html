@@ -1,5 +1,12 @@
+<button  routerLink="/korisnik/novi" type="button" class="btn btn-primary">Dodaj novog korisnika</button>
+<br>
+<br>
+<button  routerLink="/korisnik/role" type="button" class="btn btn-primary">Ažuriraj uloge</button>
+<br>
+<br>
+
 <div class="row">
-  <div  *ngFor="let user of members$ | async" class="col-2">
-      <app-member-card [user]="user"></app-member-card>
+  <div  *ngFor="let member of members$ | async" class="col-2">
+      <app-member-card [member]="member"></app-member-card>
   </div>
 </div>

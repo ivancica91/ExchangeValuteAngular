@@ -1,3 +1,4 @@
+import { Drzava } from './../_models/drzava';
 import { map } from 'rxjs/operators';
 import { PostValuta, PutTecaj, Valuta } from 'src/app/_models/valuta';
 import { environment } from './../../environments/environment';
@@ -14,6 +15,7 @@ export class ValuteService {
 
   valute: Valuta[] = [];
   himna: Himna;
+  drzava: Drzava;
 
   constructor(private http: HttpClient) { }
 
@@ -34,6 +36,11 @@ export class ValuteService {
   getHimnaByValutaId(valutaId: number): Observable<Himna> {
     const valuta = this.valute.find(v => v.valutaId === valutaId);
     return this.http.get<Himna>(this.baseUrl + 'Drzave/HimnaByDrzavaId/' + valutaId);
+  }
+
+  getDrzavaByValutaId(valutaId: number): Observable<Drzava> {
+    const valuta = this.valute.find(v => v.valutaId === valutaId);
+    return this.http.get<Drzava>(this.baseUrl + 'Drzave/DrzavaByValutaId/' + valutaId)
   }
 
   postValuta(postValuta: PostValuta): Observable<PostValuta> {

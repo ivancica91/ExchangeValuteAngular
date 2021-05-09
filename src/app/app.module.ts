@@ -1,3 +1,4 @@
+import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -35,6 +36,11 @@ import { ValutaAddComponent } from './valute/valuta-add/valuta-add.component';
 import { ValutaEditComponent } from './valute/valuta-edit/valuta-edit.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-email.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { AdminMemberEditComponent } from './members/admin-member-edit/admin-member-edit.component';
+import { MemberAddComponent } from './members/member-add/member-add.component';
+import { MemberEditRoleComponent } from './members/member-edit-role/member-edit-role.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -62,7 +68,11 @@ import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-ema
     ValutaAddComponent,
     ValutaEditComponent,
     TextInputComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    AdminMemberEditComponent,
+    MemberAddComponent,
+    MemberEditRoleComponent,
+    RolesModalComponent
   ],
   imports: [
     BrowserModule,
@@ -75,10 +85,13 @@ import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-ema
     BsDropdownModule.forRoot(),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000}),
     FormsModule,
+    LeafletModule,
+    ModalModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

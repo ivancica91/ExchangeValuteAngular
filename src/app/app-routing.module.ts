@@ -1,3 +1,5 @@
+import { MemberEditRoleComponent } from './members/member-edit-role/member-edit-role.component';
+import { AdminMemberEditComponent } from './members/admin-member-edit/admin-member-edit.component';
 import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-email.component';
 import { ValutaEditComponent } from './valute/valuta-edit/valuta-edit.component';
 import { ValutaAddComponent } from './valute/valuta-add/valuta-add.component';
@@ -17,6 +19,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './_modules/auth/register/register.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { AddSredstvaComponent } from './sredstva/add-sredstva/add-sredstva.component';
+import { MemberAddComponent } from './members/member-add/member-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'valute', pathMatch: 'full' },
@@ -28,7 +31,6 @@ const routes: Routes = [
   { path: 'zahtjevi/novi', component: AddZahtjevComponent },
   { path: 'zahtjevi/svi', component: ZahtjeviSviComponent },
   { path: 'zahtjevi/odobreni', component: ZahtjeviOdobreniComponent },
-  { path: 'zahtjevi/odobravanje', component: ZahtjeviOdobravanjeComponent },
   { path: 'sredstva', component: SredstvaComponent },
   { path: 'sredstva/nova', component: AddSredstvaComponent },
   { path: 'sredstva/azuriraj', component: SredstvaEditComponent },
@@ -36,7 +38,12 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'confirmemail', component: ConfirmEmailComponent },
   { path: 'korisnici', component: MemberListComponent },
-  { path: 'korisnici/:id', component: MemberDetailComponent },
+  { path: 'korisnici/:id', component: AdminMemberEditComponent },
+  { path: 'korisnik/edit', component: MemberDetailComponent },
+  { path: 'korisnik/novi', component: MemberAddComponent },
+  { path: 'korisnik/role', component: MemberEditRoleComponent },
+
+
 
 
 

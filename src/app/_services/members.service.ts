@@ -4,6 +4,7 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Member } from '../_models/member';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,6 @@ export class MembersService {
     );
   }
 
-// zapravo ni nemam u backu ovaj kontroler, dodaj
   getMember(id: number) {
     const member = this.members.find(x => x.id === id);
     if (member !== undefined) return of (member);
@@ -38,6 +38,16 @@ export class MembersService {
         this.members[index] = user;
       })
     );
-
   }
+  getMembersWithRoles() {
+    return this.http.get<Partial<Member[]>>(this.baseUrl + 'Korisnik/usersWithRoles');
+  }
+
+  updateMemberRoles(userName: string, roles: string[]) {
+    return this.http.post(this.baseUrl + 'Korisnik/editRoles/' + userName + '?roles=' + roles, {});
+  }
+
+
+
+
 }

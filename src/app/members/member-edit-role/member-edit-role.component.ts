@@ -65,7 +65,7 @@ export class MemberEditRoleComponent implements OnInit {
         roles: [...values.filter(el => el.checked === true).map(el => el.name)]
       };
       if (rolesToUpdate) {
-        this.membersService.updateUserRoles(member.userName, rolesToUpdate.roles).subscribe(() => {
+        this.membersService.updateMemberRoles(member.userName, rolesToUpdate.roles).subscribe(() => {
           member.roles = [...rolesToUpdate.roles]
         })
       }

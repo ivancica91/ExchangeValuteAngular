@@ -5,13 +5,9 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-<<<<<<< Updated upstream
-import { Member } from '../_models/member';
-=======
 import { Member, PostMember } from '../_models/member';
 import { Role } from '../_models/role';
 import { PostValuta } from '../_models/valuta';
->>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
@@ -47,20 +43,6 @@ export class MembersService {
       })
     );
   }
-<<<<<<< Updated upstream
-  getMembersWithRoles() {
-    return this.http.get<Partial<Member[]>>(this.baseUrl + 'Korisnik/usersWithRoles');
-  }
-
-  updateMemberRoles(userName: string, roles: string[]) {
-    return this.http.post(this.baseUrl + 'Korisnik/editRoles/' + userName + '?roles=' + roles, {});
-  }
-
-
-
-
-}
-=======
 
   postMember(postMember: PostMember): Observable<PostMember> {
     return this.http.post<PostMember>(this.baseUrl + 'Korisnik/AddUser', postMember)
@@ -83,7 +65,7 @@ export class MembersService {
     return this.http.get<Partial<Member[]>>(this.baseUrl + 'Korisnik/usersWithRoles');
   }
 
-  updateUserRoles(userName: string, roles: string[]) {
+  updateMemberRoles(userName: string, roles: string[]) {
     return this.http.post(this.baseUrl + 'Korisnik/editRoles/' + userName + '?roles=' + roles, {});
   }
 
@@ -106,4 +88,3 @@ export class MembersService {
 
 
 
->>>>>>> Stashed changes

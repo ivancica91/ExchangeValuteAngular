@@ -3,8 +3,6 @@
     <h3 class="card-header">Detalji valute:</h3>
     <div *ngIf="valuta" class="card-body">
       <h5 class="card-title">{{valuta?.naziv}}</h5>
-      <h6 class="card-subtitle text-muted">Tu će ići himna, država u kojoj se koristi?</h6>
-      <h6>Treba ubaciti i prikaz mape države kojoj valuta pripada</h6>
     </div>
     <!-- morao i ovdje dodati ngIf da ne izbacuje null error -->
     <img *ngIf="valuta" src="{{'assets/'+ valuta?.slikaValute}}" class="d-block user-select-none" width="90%" height="200"
@@ -14,15 +12,16 @@
       <p class="card-text">Tečaj u odnosu na 1 HRK: {{valuta?.tecaj | number : '1.0-2'}}</p>
     </div>
     <div class="card-body">
-      <!-- <audio #audioOption *ngIf="himna">
-        <source src="{{'assets/'+ himna?.himna}}" type="audio/mp3"/>
-    </audio> -->
-    <div class = "btnUpdate">
-      <button type="button" mat-flat-button color="primary" [routerLink]="['edit']">Ažuriranje</button>
-      <button type="button" mat-flat-button color="primary" (click)="putTecajValute();">Ažuriranje Tečaja</button>
+    <audio controls *ngIf="drzava">
+      <source src="{{'assets/'+ drzava?.himna}}" type="audio/mpeg">
+    </audio>
 
+    <div class = "btnUpdate" *ngIf="valuta">
+      <button *appHasRole='["administrator"]' type="button" class="btn btn-primary" [routerLink]="['edit']">Ažuriranje</button>
+      <button  *appHasRole='["moderator", "administrator"]'  type="button" class="btn btn-primary" (click)="putTecajValute();">Ažuriranje Tečaja</button>
     </div>
-      <a href="#"  routerLink="/valute" class="card-link">Vrati se</a>
+    <br>
+      <button routerLink="/valute" type="button" class="btn btn-primary"> Vrati se</button>
     </div>
   </div>
 

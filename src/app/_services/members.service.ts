@@ -16,6 +16,7 @@ export class MembersService {
   baseUrl = environment.apiUrl;
   members: Member[] = [];
   roles: Role[];
+  users: User[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -35,6 +36,13 @@ export class MembersService {
     return this.http.get<Member>(this.baseUrl + 'Korisnik/'+ id);
   }
 
+  getUser(id: number) {
+    const user = this.users.find(x => x.id === id);
+    if (this.users !== undefined) return of (user);
+    return this.http.get<User>(this.baseUrl + 'Korisnik/'+ id);
+  }
+
+
   updateMember(id: number,member: Member): Observable<any> {
     return this.http.put(this.baseUrl + 'Korisnik/UpdateUserById/' + id, member).pipe(
       map(() => {
@@ -44,6 +52,16 @@ export class MembersService {
     );
   }
 
+  updateUser(id: number,user: User): Observable<any> {
+    return this.http.put(this.baseUrl + 'Korisnik/UpdateUserById/' + id, user).pipe(
+      map(() => {
+        const index = this.users.indexOf(user);
+        this.users[index] = user;
+      })
+    );
+  }
+
+
   postMember(postMember: PostMember): Observable<PostMember> {
     return this.http.post<PostMember>(this.baseUrl + 'Korisnik/AddUser', postMember)
     .pipe(
@@ -51,15 +69,6 @@ export class MembersService {
     );
   }
 
-  // getMembersWithRoles(): Observable<Role[]> {
-  //   if (this.roles.length > 0) return of (this.roles);
-  //   return this.http.get<Role[]>(this.baseUrl + 'Korisnik/usersWithRoles').pipe(
-  //     map(roles => {
-  //       this.roles = roles;
-  //       return roles;
-  //     })
-  //   );
-  // }
 
   getMembersWithRoles() {
     return this.http.get<Partial<Member[]>>(this.baseUrl + 'Korisnik/usersWithRoles');
@@ -69,13 +78,6 @@ export class MembersService {
     return this.http.post(this.baseUrl + 'Korisnik/editRoles/' + userName + '?role=' + roles, {});
   }
 
-  // editRoles(putRole: PutRole): Observable<any> {
-  //   return this.http.put(this.baseUrl + 'Korisnik/editRoles', putRole)
-  // }
-
-  // updateValuta(valutaId: number, valuta: PostValuta): Observable<any> {
-  //   return this.http.put(this.baseUrl + 'Valute/AzurirajValutu/' + valutaId, valuta)
-  // }
 
 
 

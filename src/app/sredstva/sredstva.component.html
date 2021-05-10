@@ -4,7 +4,10 @@
 
 <h4>Vaša sredstva:</h4>
 <br>
-
+<br>
+<h4 *ngIf="sredstva?.length === 0" >Trenutno nemate raspoloživih sredstava</h4>
+<button  routerLink="/sredstva/nova" type="button" class="btn btn-primary">Dodaj sredstva</button>
+<br>
 <br>
 <div class="row">
   <div *ngIf="sredstva" class="col-2">

@@ -1,3 +1,6 @@
+import { LoggedInGuard } from './_guards/logged-in.guard';
+import { ModeratorGuard } from './_guards/moderator.guard';
+import { AdminGuard } from './_guards/admin.guard';
 import { MemberEditRoleComponent } from './members/member-edit-role/member-edit-role.component';
 import { AdminMemberEditComponent } from './members/admin-member-edit/admin-member-edit.component';
 import { ConfirmEmailComponent } from './_modules/auth/confirm-email/confirm-email.component';
@@ -25,23 +28,23 @@ const routes: Routes = [
   { path: '', redirectTo: 'valute', pathMatch: 'full' },
   { path: 'valute', component: ValuteListComponent },
   { path: 'valuta/:valutaId', component: ValutaDetailsComponent },
-  { path: 'valuta/:valutaId/edit', component: ValutaEditComponent },
-  { path: 'valute/nova', component: ValutaAddComponent },
-  { path: 'zahtjevi', component: ZahtjeviComponent },
-  { path: 'zahtjevi/novi', component: AddZahtjevComponent },
-  { path: 'zahtjevi/svi', component: ZahtjeviSviComponent },
-  { path: 'zahtjevi/odobreni', component: ZahtjeviOdobreniComponent },
-  { path: 'sredstva', component: SredstvaComponent },
-  { path: 'sredstva/nova', component: AddSredstvaComponent },
-  { path: 'sredstva/azuriraj', component: SredstvaEditComponent },
-  { path: 'sredstva/protuvrijednosti', component: ProtuvrijednostiComponent },
+  { path: 'valuta/:valutaId/edit', component: ValutaEditComponent ,canActivate: [AdminGuard]},
+  { path: 'valute/nova', component: ValutaAddComponent ,canActivate: [AdminGuard]},
+  { path: 'zahtjevi', component: ZahtjeviComponent ,canActivate: [LoggedInGuard]},
+  { path: 'zahtjevi/novi', component: AddZahtjevComponent ,canActivate: [LoggedInGuard]},
+  { path: 'zahtjevi/svi', component: ZahtjeviSviComponent ,canActivate: [ModeratorGuard]},
+  { path: 'zahtjevi/odobreni', component: ZahtjeviOdobreniComponent ,canActivate: [AdminGuard]},
+  { path: 'sredstva', component: SredstvaComponent ,canActivate: [LoggedInGuard]},
+  { path: 'sredstva/nova', component: AddSredstvaComponent ,canActivate: [LoggedInGuard]},
+  { path: 'sredstva/azuriraj', component: SredstvaEditComponent ,canActivate: [LoggedInGuard]},
+  { path: 'sredstva/protuvrijednosti', component: ProtuvrijednostiComponent ,canActivate: [LoggedInGuard]},
   { path: 'register', component: RegisterComponent },
   { path: 'confirmemail', component: ConfirmEmailComponent },
-  { path: 'korisnici', component: MemberListComponent },
-  { path: 'korisnici/:id', component: AdminMemberEditComponent },
-  { path: 'korisnik/edit', component: MemberDetailComponent },
-  { path: 'korisnik/novi', component: MemberAddComponent },
-  { path: 'korisnik/role', component: MemberEditRoleComponent },
+  { path: 'korisnici', component: MemberListComponent ,canActivate: [AdminGuard]},
+  { path: 'korisnici/:id', component: AdminMemberEditComponent ,canActivate: [LoggedInGuard]},
+  { path: 'korisnik/edit', component: MemberDetailComponent ,canActivate: [LoggedInGuard]},
+  { path: 'korisnik/novi', component: MemberAddComponent ,canActivate: [AdminGuard]},
+  { path: 'korisnik/role', component: MemberEditRoleComponent ,canActivate: [AdminGuard]},
   { path: '**', component: ValuteListComponent, pathMatch: 'full' }
 ];
 

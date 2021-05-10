@@ -19,28 +19,14 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ['./member-edit-role.component.css']
 })
 export class MemberEditRoleComponent implements OnInit {
-  // roleForm: FormGroup;
-  // role: Role[];
-  // putRole: PutRole;
   members: Partial<Member[]>;
   bsModalRef: BsModalRef;
 
   constructor(private membersService: MembersService,private modalService: BsModalService) {
-      // this.roleForm = this.formBuilder.group({
-      //   userName: ['', [Validators.required]],
-      //   roles: ['', [Validators.required]],
-
-        // roles: ['']
-    // });
-
-  //   of(this.getRoles()).subscribe(roles => {
-  //     this.roles = roles;
-  //   });
  }
 
 
   ngOnInit(): void {
-    // this.getMembersWithRoles();
     this.getMembersWithRoles();
   }
 
@@ -97,38 +83,4 @@ export class MemberEditRoleComponent implements OnInit {
     })
     return roles;
   }
-
-  // getMembersWithRoles(): void {
-  //   this.membersService.getMembersWithRoles()
-  //   .subscribe(
-  //     roles => {
-  //       this.role = roles;
-  //       console.log(roles);
-  //     },
-  //     error => {
-  //       console.log(error);
-  //     }
-  //   )
-  // }
-
-
-  // getRoles() {
-  //   return [
-  //     { id: '2', name: 'moderator' },
-  //     { id: '3', name: 'korisnik 2' },
-  //   ];
-  // }
-
-  // onSubmit() {
-  //   this.membersService.editRoles(this.roleForm.value).subscribe(response => {
-  //     this.ngOnInit();
-  //     this.toastr.success('Uloge uspješno promijenjene.')
-  //   },
-  //   (error) => {
-  //     console.log(error);
-  //     this.toastr.warning('Neuspješna promjena uloga')
-  //   });
-
-  // }
-
 }

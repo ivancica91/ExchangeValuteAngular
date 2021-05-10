@@ -57,6 +57,7 @@ drzava: Drzava;
 
   constructor(
     private valuteService: ValuteService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService) { }

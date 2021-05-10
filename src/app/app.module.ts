@@ -40,6 +40,7 @@ import { AdminMemberEditComponent } from './members/admin-member-edit/admin-memb
 import { MemberAddComponent } from './members/member-add/member-add.component';
 import { MemberEditRoleComponent } from './members/member-edit-role/member-edit-role.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { HasRoleDirective } from './_directives/has-role.directive';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AdminMemberEditComponent,
     MemberAddComponent,
     MemberEditRoleComponent,
-    RolesModalComponent
+    RolesModalComponent,
+    HasRoleDirective
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,8 @@ export class AppComponent {
 
   setCurrentUser() {
     const user: User = JSON.parse(localStorage.getItem('user'));
-    this.authService.setCurrentUser(user);
+    if (user) {
+      this.authService.setCurrentUser(user);
+    }
   }
 }

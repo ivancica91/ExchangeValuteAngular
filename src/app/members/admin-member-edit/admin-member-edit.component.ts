@@ -36,7 +36,7 @@ export class AdminMemberEditComponent implements OnInit {
     this.membersService.updateMember(this.member.id, this.member).subscribe(
       response => {
         this.toastr.success('Profil editiran.');
-        this.router.navigate(['/korisnici']);
+        this.router.navigate(['/valute']);
       }
     );
   }

@@ -6,6 +6,7 @@ import { User } from 'src/app/_models/user';
 import { AuthService } from 'src/app/_services/auth.service';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/_models/member';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-member-detail',
@@ -18,7 +19,7 @@ export class MemberDetailComponent implements OnInit {
   member: Member;
   id: number;
 
-  constructor(private authService: AuthService, private membersService: MembersService, private route: ActivatedRoute) {
+  constructor(private authService: AuthService, private membersService: MembersService, private route: ActivatedRoute, private toastr: ToastrService) {
     this.authService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
@@ -29,15 +30,15 @@ export class MemberDetailComponent implements OnInit {
 
 
   loadUser() {
-    this.membersService.getMember(this.user.id).subscribe(member => {
-      this.member = member;
+    this.membersService.getUser(this.user.id).subscribe(user => {
+      this.user = user;
     });
   }
 
   updateUser() {
-    this.membersService.updateMember(this.id,this.member).subscribe(() => {
-      // this.toastr.success('Profil editiran.');
-      this.editForm.reset(this.member);  // apdejtan korisnik nakon submitanja
+    this.membersService.updateUser(this.id,this.user).subscribe(() => {
+      this.toastr.success('Profil editiran.');
+      this.editForm.reset(this.user);  // apdejtan korisnik nakon submitanja
     });
   }
 

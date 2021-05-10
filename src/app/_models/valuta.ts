@@ -5,6 +5,7 @@ export interface Valuta {
   naziv: string;
   tecaj: number;
   slikaValute?: string;
+  korisnikId: number
 }
 
 export interface PostValuta {

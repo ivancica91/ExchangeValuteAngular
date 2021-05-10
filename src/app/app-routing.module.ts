@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'zahtjevi', component: ZahtjeviComponent ,canActivate: [LoggedInGuard]},
   { path: 'zahtjevi/novi', component: AddZahtjevComponent ,canActivate: [LoggedInGuard]},
   { path: 'zahtjevi/svi', component: ZahtjeviSviComponent ,canActivate: [ModeratorGuard]},
-  { path: 'zahtjevi/odobreni', component: ZahtjeviOdobreniComponent ,canActivate: [AdminGuard]},
+  // { path: 'zahtjevi/odobreni', component: ZahtjeviOdobreniComponent ,canActivate: [AdminGuard]},
   { path: 'sredstva', component: SredstvaComponent ,canActivate: [LoggedInGuard]},
   { path: 'sredstva/nova', component: AddSredstvaComponent ,canActivate: [LoggedInGuard]},
   { path: 'sredstva/azuriraj', component: SredstvaEditComponent ,canActivate: [LoggedInGuard]},

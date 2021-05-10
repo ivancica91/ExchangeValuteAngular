@@ -2,8 +2,8 @@
 <br>
 <!-- ovdje ubaciti kasnije da samo admin vidi ngIf..... -->
 <div class="container" *ngIf="valute">
-<button type="button" class="btn btn-primary btn-sm" (click)="valuteToXml();">Export u Xml</button>
-<button type="button" class="btn btn-primary btn-sm" (click)="valuteFromXml();">Import iz Xml-a</button>
+<button *appHasRole='["administrator"]' type="button" class="btn btn-primary btn-sm" (click)="valuteToXml();">Export u Xml</button>
+<button *appHasRole='["administrator"]' type="button" class="btn btn-primary btn-sm" (click)="valuteFromXml();">Import iz Xml-a</button>
 </div>
 <br>
 <div class="row">

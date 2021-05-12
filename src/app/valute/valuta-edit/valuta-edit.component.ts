@@ -27,7 +27,7 @@ valuta: Valuta;
     });
 
     this.valutaForm = this.formBuilder.group({
-      korisnikId: new FormControl('', [Validators.required]),
+      userName: new FormControl('', [Validators.required]),
       naziv: new FormControl('', [Validators.required]),
       slikaValute: new FormControl(''),
       aktivnoOd: new FormControl('', [Validators.required]),

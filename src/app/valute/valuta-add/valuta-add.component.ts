@@ -19,7 +19,7 @@ export class ValutaAddComponent implements OnInit {
   constructor(private valuteService: ValuteService, private formBuilder: FormBuilder, private http: HttpClient,
     private router: Router, private toastr: ToastrService) {
       this.valutaForm = this.formBuilder.group({
-        korisnikId: new FormControl('', [Validators.required]),
+        userName: new FormControl('', [Validators.required]),
         naziv: new FormControl('', [Validators.required]),
         slikaValute: new FormControl(''),
         aktivnoOd: new FormControl('', [Validators.required]),

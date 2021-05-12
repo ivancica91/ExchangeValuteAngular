@@ -9,7 +9,7 @@ export interface Valuta {
 }
 
 export interface PostValuta {
-  KorisnikId: number;
+  userName: string
   naziv: string;
   slikaValute?: string;
   AktivnoOd: Time;

@@ -1,6 +1,7 @@
 <div  class="card text-white bg-primary mb-3"  style="max-width: 20rem;">
   <div class="card-header" [ngStyle]="{backgroundColor: zahtjev.prihvacen === 2 ? 'green' : 'red'}">Status: {{zahtjev.prihvacen}}</div>
   <div class="card-header text-muted"> Id korisnika: {{zahtjev.korisnikId}}</div>
+  <div class="card-header text-muted"> Vrijeme kreiranja zahtjeva: {{zahtjev.datumVrijemeKreiranja | date:'medium'}}</div>
   <div class="card-header text-muted"> Prodajna valuta: {{zahtjev.prodajemValuta}}</div>
   <div class="card-header text-muted"> Kupovna valuta: {{zahtjev.kupujemValuta}}</div>
   <div class="card-body">

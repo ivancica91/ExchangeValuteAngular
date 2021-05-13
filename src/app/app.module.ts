@@ -41,6 +41,7 @@ import { MemberAddComponent } from './members/member-add/member-add.component';
 import { MemberEditRoleComponent } from './members/member-edit-role/member-edit-role.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HasRoleDirective } from './_directives/has-role.directive';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { HasRoleDirective } from './_directives/has-role.directive';
     BsDropdownModule.forRoot(),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000}),
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    LeafletModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}

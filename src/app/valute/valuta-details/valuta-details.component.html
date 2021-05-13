@@ -25,16 +25,10 @@
     </div>
   </div>
 
-  <!-- <div id="mapid" class="map" style="height: 200px;"
+  <div *ngIf="drzava" class="container">
+  <div id="mapid" class="map" style="height: 200px;"
      leaflet
      [leafletOptions]="options">
-     [(leafletCenter)]="center"
-</div> -->
-
-<!-- <div class="map-container">
-  <div class="map-frame">
-    <div id="map"></div>
-  </div>
-</div> -->
-
-
+     <!-- [(leafletCenter)]="center" -->
+</div>
+</div>

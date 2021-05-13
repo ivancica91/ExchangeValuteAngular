@@ -7,6 +7,7 @@ import { PutTecaj, Valuta } from 'src/app/_models/valuta';
 import { Himna } from 'src/app/_models/himna';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { latLng, tileLayer } from 'leaflet';
 // import * as L from 'leaflet';
 
 @Component({
@@ -23,6 +24,10 @@ putTecaj: PutTecaj;
 lat: string;
 lng: string;
 drzava: Drzava;
+
+latitude: number;
+  longitude: number;
+  map: any;
 // private map: L.Map;
 
 
@@ -66,6 +71,7 @@ drzava: Drzava;
     this.valutaId =+this.route.snapshot.paramMap.get('valutaId'); // bez + cita kao string i ne valja
     this.loadValuta();
     this.loadDrzava()
+
     // this.initMap();
     // this.getId();
     // this.loadHimna();
@@ -128,22 +134,15 @@ drzava: Drzava;
     console.log(data)
    }
 
-  //  options = {
-  //   layers: [
-  //       tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
-  //   ],
-  //   zoom: 5,
-  //   // center: latLng(46.879966, -121.726909)
-  //   center: latLng(this.loadDrzava., -121.726909)
-  // };
 
-
-
-
-
-
-
-
-
+  options = {
+    layers: [
+      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      })
+    ],
+    zoom: 7,
+    center: latLng([ 46.879966, -121.726909 ])
+  };
 
 }

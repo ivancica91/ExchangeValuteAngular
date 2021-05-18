@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Drzava } from './../../_models/drzava';
 import { Observable } from 'rxjs';
 import { ValuteService } from './../../_services/valute.service';
@@ -7,8 +8,13 @@ import { PutTecaj, Valuta } from 'src/app/_models/valuta';
 import { Himna } from 'src/app/_models/himna';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { latLng, tileLayer } from 'leaflet';
-// import * as L from 'leaflet';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import TileLayer from 'ol/layer/Tile';
+import OSM from 'ol/source/OSM';
+import {fromLonLat} from 'ol/proj';
+
+
 
 @Component({
   selector: 'app-valuta-details',
@@ -17,47 +23,20 @@ import { latLng, tileLayer } from 'leaflet';
 })
 export class ValutaDetailsComponent implements OnInit {
   @ViewChild('audioOption') audioPlayerRef: ElementRef;
+  @Input() sirina: string; duljina: string;
+
+
 valuta: Valuta
 himna: Himna;
 valutaId: number;
 putTecaj: PutTecaj;
-lat: string;
-lng: string;
-drzava: Drzava;
-
-latitude: number;
-  longitude: number;
-  map: any;
-// private map: L.Map;
+drzava: Drzava
+map: Map;
+long: number;
+lat: number;
 
 
-// private centroid: L.LatLngExpression= [45.06463158257005, 14.778615263851686]; // Hrvatska
 
-
-// private initMap(): void {
-//   this.map = L.map('map', {
-//     center: this.centroid,
-//     zoom: 8
-//   });
-
-//   const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//       maxZoom: 18,
-//       minZoom: 10,
-//       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-//     });
-
-//     // create 5 random jitteries and add them to map
-//     const jittery = Array(5).fill(this.centroid).map(
-//         x => [x[0] + (Math.random() - .5)/10, x[1] + (Math.random() - .5)/10 ]
-//       ).map(
-//         x => L.marker(x as L.LatLngExpression)
-//       ).forEach(
-//         x => x.addTo(this.map)
-//       );
-
-//     tiles.addTo(this.map);
-
-//   }
 
 
   constructor(
@@ -70,11 +49,7 @@ latitude: number;
   ngOnInit(): void {
     this.valutaId =+this.route.snapshot.paramMap.get('valutaId'); // bez + cita kao string i ne valja
     this.loadValuta();
-    this.loadDrzava()
-
-    // this.initMap();
-    // this.getId();
-    // this.loadHimna();
+    this.loadDrzava();
     }
 
 
@@ -82,11 +57,32 @@ latitude: number;
       this.valuteService.getDrzavaByValutaId(this.valutaId).subscribe(drzava => {
         this.drzava = drzava;
         console.log(drzava);
+        this.duljina = this.drzava.duljina
+        this.sirina = this.drzava.sirina
+        var long = parseFloat(this.duljina);
+        var lat = parseFloat(this.sirina);
+        console.log(long);
+        console.log(lat);
+
+        this.map = new Map({
+          view: new View({
+            center: fromLonLat([long, lat]),
+            zoom: 6,
+          }),
+          layers: [
+            new TileLayer({
+              source: new OSM(),
+            }),
+          ],
+          target: 'map',
+
+        });
       },
       error => {
         console.log(error);
       });
     }
+
 
   loadValuta() {
     this.valuteService.getValuta(this.valutaId).subscribe(valuta => {
@@ -104,11 +100,6 @@ latitude: number;
       console.log(error);
     });
   }
-
-
-  // onAudioPlay(){
-  //   this.audioPlayerRef.nativeElement.play();
-  // }
 
   putTecajValute() {
     this.valuteService.putTecajValute(this.valutaId).subscribe(valuta => {
@@ -134,15 +125,10 @@ latitude: number;
     console.log(data)
    }
 
+  }
 
-  options = {
-    layers: [
-      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      })
-    ],
-    zoom: 7,
-    center: latLng([ 46.879966, -121.726909 ])
-  };
 
-}
+
+
+
+

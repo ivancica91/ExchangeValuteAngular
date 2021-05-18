@@ -34,18 +34,5 @@ export class SredstvaComponent implements OnInit {
     )
   }
 
-  //   getProtuvrijednosti(): void {
-  //   this.sredstvaService.getProtuvrijednost()
-  //   .subscribe(
-  //     data => {
-  //       this.protuvrijednosti = data;
-  //       console.log(data);
-  //       this.isShowDiv = !this.isShowDiv;
-  //     },
-  //     error => {
-  //       console.log(error);
-  //     }
-  //   )
-  // }
 
 }

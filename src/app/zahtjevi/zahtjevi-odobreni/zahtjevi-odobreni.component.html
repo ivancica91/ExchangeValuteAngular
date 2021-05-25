@@ -1,1 +1,32 @@
-<p>zahtjevi-odobreni works!</p>
+<h4>Ukupan iznos prodanih valuta</h4>
+<div class="row">
+  <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+<input type="datetime-local"   ([ngModel]) = 'from'>
+<input  type="datetime-local" ([ngModel]) = 'to'>
+<div class="form-group">
+  <button type="submit" class="btn btn-primary" (click)="getOdobreneByDate()">Traži</button>
+</div>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+    <input class="form-control"
+           placeholder="Odabir razdoblja"
+           ngModel
+           bsDaterangepicker
+           [minDate]="minDate"
+           [maxDate]="maxDate">
+  </div>
+  <button type="submit" class="btn btn-primary" onclick="getOdobreneByDate()">Traži</button>
+</div> -->
+
+<div *ngFor="let odobren of odobreni" class="card text-white bg-primary mb-3"  style="max-width: 20rem;">
+  <div class="card-header" >Naziv: {{odobren.naziv}}</div>
+  <div class="card-header text-muted"> IdValute: {{odobren.valutaId}}</div>
+  <div class="card-body">
+    <h4 class="card-title">Iznos</h4>
+    <p class="card-text">{{odobren.iznos}}</p>
+  </div>
+</div>
+

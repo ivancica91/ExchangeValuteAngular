@@ -24,6 +24,20 @@ import { Valuta } from "./valuta";
     prihvacen: number;
 }
 
+export interface DateRange {
+  from: Date;
+  to: Date;
+}
+
+export interface OdobreniZahtjevIznosi {
+  valutaId: number;
+  naziv: string;
+  iznos: number;
+
+}
+
+
+
 
 
 

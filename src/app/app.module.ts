@@ -40,6 +40,7 @@ import { AdminMemberEditComponent } from './members/admin-member-edit/admin-memb
 import { MemberAddComponent } from './members/member-add/member-add.component';
 import { MemberEditRoleComponent } from './members/member-edit-role/member-edit-role.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HasRoleDirective } from './_directives/has-role.directive';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
@@ -88,7 +89,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     AlertModule.forRoot({maxMessages: 5, timeout: 5000}),
     FormsModule,
     ModalModule.forRoot(),
-    LeafletModule
+    LeafletModule,
+    BsDatepickerModule.forRoot()
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}

@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Valuta } from '../_models/valuta';
-import { OdobravanjeZahtjeva, PostZahtjev, Zahtjev } from '../_models/zahtjev';
+import { DateRange, OdobravanjeZahtjeva, OdobreniZahtjevIznosi, PostZahtjev, Zahtjev } from '../_models/zahtjev';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class ZahtjeviService {
   zahtjevi: Zahtjev[] = []
   valute: Valuta[];
 
-
   constructor(private http: HttpClient) { }
+
 
   getAll(): Observable<Zahtjev[]> {
     return this.http.get<Zahtjev[]>(this.baseUrl + 'Zahtjevi/allZahtjeve');
@@ -26,9 +26,20 @@ export class ZahtjeviService {
   }
 
 
-  // VIDI KAKO OVO, ZNACI TREBA BIT MOGUCE PREGLEDAVANJE UNUTAR NEKOG DATUMA
-  getAllOdobreneZahtjeve(): Observable<any> {
-    return this.http.get<Valuta[]>(this.baseUrl + 'Zahtjevi/allOdobreneZahtjeve');
+  getAllOdobreneZahtjeve(/* id?: number, */ from?: Date, to?: Date): Observable<any> {
+
+    let params = new HttpParams();
+
+    // if (id) {
+    //   params.set('id', id.toString());
+    // }
+
+    if (from && to) {
+      params = params.set('from', from.toUTCString());
+      params = params.set('to', to.toUTCString());
+    }
+
+    return this.http.get<OdobreniZahtjevIznosi[]>(this.baseUrl + 'Zahtjevi/allOdobreneZahtjeve', { params });
   }
 
   postZahtjevByLoggedUser(zahtjev: PostZahtjev): Observable<PostZahtjev> {
